@@ -32,9 +32,9 @@
                             <td>{{$item->email}}</td>
                             <td>{{($item->role == 1)?'Admin':'Superuser'}}</td>
                             <td><div style="text-align:center">
-                                <a href="{{url("admin/user/edit/".$item->id)}}" class="btn btn-warning btn-xs">Ubah</a> 
-                                <a href="{{url("admin/user/destroy/".$item->id)}}" class="btn btn-danger btn-xs">Hapus</a> 
-                                <a href="{{url("admin/user/verif/".$item->id)}}" class="btn btn-info btn-xs">{{($item->status == 0)?'Verify':'disable'}}</a> 
+                                <a href="{{route("admin.user.edit", $item->id)}}" class="btn btn-warning btn-xs">Ubah</a> 
+                                <a href="{{route("admin.user.destroy", $item->id)}}" class="btn btn-danger btn-xs">Hapus</a> 
+                                <a href="{{route("admin.user.verif", $item->id)}}" class="btn btn-info btn-xs">{{($item->status == 0)?'Verify':'Disable'}}</a> 
                             </div></td>
                         </tr>
                         @endforeach

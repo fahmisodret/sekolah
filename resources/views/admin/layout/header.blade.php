@@ -12,16 +12,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/admin') }}">Dashboard <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('admin') }}">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/admin/produk') }}">Produk <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('admin.produk.index') }}">Produk <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/admin/order') }}">Order <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('admin.order.index') }}">Order <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/admin/user') }}">User <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('admin.user.index') }}">User <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 

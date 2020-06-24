@@ -6,7 +6,7 @@
         <div class="col-md-12 card">
             <div class="card-body">
                 <h3 class="box-title">Data Produk</h3>
-                <a href="{{url("admin/produk/create")}}" class="btn btn-success btn-sm">Tambah</a> 
+                <a href="{{route("admin.produk.create")}}" class="btn btn-success btn-sm">Tambah</a> 
                 <hr style="margin: 10px 0 15px 0">
                 {{-- <table class="table table-bordered data-table"> --}}
                 <div class="col-md-12">

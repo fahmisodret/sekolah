@@ -17,8 +17,8 @@ class OrderController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                        $btn[] = '<a href="'.url("admin/order/edit/".$row->id).'" class="btn btn-warning btn-sm">Ubah</a>';
-                        $btn[] = '<a href="'.url("admin/order/destroy/".$row->id).'" class="btn btn-danger btn-sm">Hapus</a>';
+                        $btn[] = '<a href="'.route("admin.order.edit", $row->id).'" class="btn btn-warning btn-sm">Ubah</a>';
+                        $btn[] = '<a href="'.route("admin.order.destroy", $row->id).'" class="btn btn-danger btn-sm">Hapus</a>';
                         return implode(' ', $btn);
                 })
                 ->rawColumns(['action'])

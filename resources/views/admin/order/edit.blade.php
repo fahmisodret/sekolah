@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h3 class="box-title">Edit Order</h3>
                 <hr style="margin: 10px 0 15px 0">
-                <form name="form-soal" method="POST" class="form-horizontal" enctype="multipart/form-data" action="{{ url('/admin/order/update/'.$data->id) }}">
+                <form name="form-soal" method="POST" class="form-horizontal" enctype="multipart/form-data" action="{{ route('admin.order.update', $data->id) }}">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <div id="wrap-btn">
-                                    <a href="{{ url('/admin/order')}}" class="btn btn-danger">Kembali</a>
+                                    <a href="{{ route('admin.order.index')}}" class="btn btn-danger">Kembali</a>
                                     <button type="submit" class="btn btn-info" id="btnSimpan">Simpan</button>
                                 </div>
                             </div>

@@ -17,8 +17,8 @@ class ProdukController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                        $btn[] = '<a href="'.url("admin/produk/edit/".$row->id).'" class="btn btn-warning btn-sm">Ubah</a>';
-                        $btn[] = '<a href="'.url("admin/produk/destroy/".$row->id).'" class="btn btn-danger btn-sm">Hapus</a>';
+                        $btn[] = '<a href="'.route("admin.produk.edit", $row->id).'" class="btn btn-warning btn-sm">Ubah</a>';
+                        $btn[] = '<a href="'.route("admin.produk.destroy", $row->id).'" class="btn btn-danger btn-sm">Hapus</a>';
                         return implode(' ', $btn);
                 })
                 ->rawColumns(['action'])
