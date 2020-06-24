@@ -39,19 +39,28 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 		});
 		Route::group(['prefix' => 'user', 'as' => '.user'], function () {
 			Route::get('/', 'UserController@index')->name('.index');
-			Route::get('/create', 'UserController@create')->name('.create');
-			Route::post('/store', 'UserController@store')->name('.store');
 			Route::get('/verif/{id}', 'UserController@verif')->name('.verif');
+			Route::get('/edit/{id}', 'UserController@edit')->name('.edit');
+			Route::post('/update/{id}', 'UserController@update')->name('.update');
+			Route::get('/destroy/{id}', 'UserController@destroy')->name('.destroy');
 		});
-		// Route::group(['prefix' => 'about', 'as' => '.about'], function () {
-		// 	Route::get('/', 'AboutController@index')->name('.index');
-		// 	Route::get('/create', 'AboutController@create')->name('.create');
-		// 	Route::post('/store', 'AboutController@store')->name('.store');
-		// 	Route::get('/edit/{id}', 'AboutController@edit')->name('.edit');
-		// 	Route::post('/update/{id}', 'AboutController@update')->name('.update');
-		// 	Route::get('/destroy/{id}', 'AboutController@destroy')->name('.destroy');
-		// });
+		Route::group(['prefix' => 'produk', 'as' => '.produk'], function () {
+			Route::get('/', 'ProdukController@index')->name('.index');
+			Route::get('/create', 'ProdukController@create')->name('.create');
+			Route::post('/store', 'ProdukController@store')->name('.store');
+			Route::get('/edit/{id}', 'ProdukController@edit')->name('.edit');
+			Route::post('/update/{id}', 'ProdukController@update')->name('.update');
+			Route::get('/destroy/{id}', 'ProdukController@destroy')->name('.destroy');
+		});
+		Route::group(['prefix' => 'order', 'as' => '.order'], function () {
+			Route::get('/', 'OrderController@index')->name('.index');
+			Route::get('/edit/{id}', 'OrderController@edit')->name('.edit');
+			Route::post('/update/{id}', 'OrderController@update')->name('.update');
+			Route::get('/destroy/{id}', 'OrderController@destroy')->name('.destroy');
+		});
 	});
 });
 
 Route::get('/', 'FrontController@index')->name('home');
+Route::get('/order/{code}', 'FrontController@order')->name('order');
+Route::post('/order/done/{code}', 'FrontController@done')->name('done');

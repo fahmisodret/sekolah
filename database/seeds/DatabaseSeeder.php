@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use App\Post;
+use App\Config;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call('UsersTableSeeder');
-        // $this->call(TagsSeeder::class);
+        $this->call('ConfigsTableSeeder');
     }
 }
 
@@ -36,6 +36,17 @@ class UsersTableSeeder extends Seeder
         $user->password = Hash::make('password');
         $user->remember_token = Str::random(10);
         $user->save();
+
+        $user = new User();
+        $user->name = $faker->name;
+        $user->phone = $faker->tollFreeNumber;
+        $user->email = 'admin2@admin.com';
+        $user->role = 1;
+        $user->status = 0;
+        $user->email_verified_at = now();
+        $user->password = Hash::make('password');
+        $user->remember_token = Str::random(10);
+        $user->save();
         // for ($i = 0; $i < 500; ++$i) {
         //     $user = new User();
         //     $user->name = $faker->name;
@@ -43,5 +54,19 @@ class UsersTableSeeder extends Seeder
         //     $user->password = Hash::make('secret');
         //     $user->save();
         // }
+    }
+}
+
+class ConfigsTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('configs')->delete();
+
+        $faker = Faker\Factory::create('en_NZ');
+        $config = new Config();
+        $config->name = 'info_name';
+        $config->keterangan = 'Ellen May Institute';
+        $config->save();
     }
 }

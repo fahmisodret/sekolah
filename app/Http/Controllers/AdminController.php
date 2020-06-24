@@ -24,9 +24,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-    	$data['mainTitle'] = 'Dashboard';
-    	$data['firstPage'] = 'Admin';
-    	$data['secondPage'] = 'Dashboard';
-        return view('admin.home', $data);
+        return view('admin.home');
     }
 }

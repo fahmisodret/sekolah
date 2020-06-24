@@ -16,9 +16,6 @@ class UserController extends Controller
      */
     public function index()
     {
-    	$data['mainTitle'] = 'User';
-    	$data['firstPage'] = 'Admin';
-    	$data['secondPage'] = 'User';
     	$data['kel'] = User::all();
         return view('admin.user.index', $data);
     }
@@ -29,12 +26,10 @@ class UserController extends Controller
      *
      * @return data user
      */
-    public function create()
+    public function edit($id)
     {
-    	$data['mainTitle'] = 'User';
-    	$data['firstPage'] = 'Admin';
-    	$data['secondPage'] = 'User';
-        return view('admin.user.create', $data);
+        $data['data'] = User::find($id);
+        return view('admin.user.edit', $data);
     }
 
 
@@ -42,42 +37,29 @@ class UserController extends Controller
      * insert data user.
      * Role = Admin
      *
+     * @param $id
      * @return data user
      */
-    public function store(Request $request)
+    public function update(Request $request, $id)
     {
-        $status = 200;
-        $message = 'User added!';
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'role' => ['required'],
 		]);
         $requestData = $request->all();
-        $res = User::create([
+
+        $data = User::find($id);
+        $data->update([
             'name' => $requestData['name'],
             'phone' => $requestData['phone'],
-            'email' => $requestData['email'],
-            'role' => $requestData['role'],
-            'password' => Hash::make('123456'),
         ]);
-
         
-        if(!$res){
-            $status = 500;
-            $message = 'User Not added!';
-        }
-        if($request->ajax()){
-            return response()->json(['flash_status'=>$status, 'flash_message'=>$message]);
-        }
-        return redirect('admin/user')
-            ->with(['flash_status' => $status,'flash_message' => $message]);
+        return redirect('admin/user');
     }
 
 
     /**
-     * update data user.
+     * verify data user.
      * Role = Admin
      *
      * @param $id
@@ -85,8 +67,6 @@ class UserController extends Controller
      */
     public function verif($id)
     {
-        $status = 200;
-        $message = 'User updated!';
         $user = User::find($id);
         $res = $user->update(['status'=>!$user->status]);
         if(!$res){
@@ -94,11 +74,7 @@ class UserController extends Controller
             $message = 'User Not updated!';
         }
 
-        // if($request->ajax()){
-        //     return response()->json(['flash_status'=>$status, 'flash_message'=>$message]);
-        // }
-        return redirect('admin/user')
-            ->with(['flash_status' => $status,'flash_message' => $message]);
+        return redirect('admin/user');
     }
 
 
