@@ -31,7 +31,8 @@ Aplikasi sederhana untuk upload produk dan jual produk.
 
 ## Instalation
 
-- Silahkan install pakkagenya dahulu
-- Setup database
-- migrate database dan jangan lupa untuk seeding data
-- dan anda bisa menjalankan project nya seperti biasa.
+- Silahkan clone dari link diatas
+- install pakkagenya dahulu "composer install"
+- Setup database(env)
+- migrate database dan jangan lupa untuk seeding data "php artisan migrate and db:seed"
+- dan anda bisa menjalankan project nya seperti biasa "php artisan serve"
