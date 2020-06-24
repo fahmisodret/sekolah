@@ -36,3 +36,8 @@ Aplikasi sederhana untuk upload produk dan jual produk.
 - Setup database(env)
 - migrate database dan jangan lupa untuk seeding data "php artisan migrate and db:seed"
 - dan anda bisa menjalankan project nya seperti biasa "php artisan serve"
+
+## information
+- link login /login
+- Username : admin@admin.com
+- Password : password
