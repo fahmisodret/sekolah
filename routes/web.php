@@ -24,43 +24,35 @@ Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('config:cache');
     return 'DONE'; //Return anything
 });
-// Route::get('/home', 'HomeController@index')->name('dashboard');
-
-Route::group(['middleware' => ['auth', 'admin', 'operator']], function () {
-});
-
-Route::group(['middleware' => ['auth', 'admin']], function () {
-	Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
-		Route::get('/', 'AdminController@index')->name('');
-		Route::group(['prefix' => 'config', 'as' => '.config'], function () {
-			Route::get('/', 'ConfigController@index')->name('.index');
-			Route::get('/edit/{id}', 'ConfigController@edit')->name('.edit');
-			Route::post('/update/{id}', 'ConfigController@update')->name('.update');
-		});
-		Route::group(['prefix' => 'user', 'as' => '.user'], function () {
-			Route::get('/', 'UserController@index')->name('.index');
-			Route::get('/verif/{id}', 'UserController@verif')->name('.verif');
-			Route::get('/edit/{id}', 'UserController@edit')->name('.edit');
-			Route::post('/update/{id}', 'UserController@update')->name('.update');
-			Route::get('/destroy/{id}', 'UserController@destroy')->name('.destroy');
-		});
-		Route::group(['prefix' => 'produk', 'as' => '.produk'], function () {
-			Route::get('/', 'ProdukController@index')->name('.index');
-			Route::get('/create', 'ProdukController@create')->name('.create');
-			Route::post('/store', 'ProdukController@store')->name('.store');
-			Route::get('/edit/{id}', 'ProdukController@edit')->name('.edit');
-			Route::post('/update/{id}', 'ProdukController@update')->name('.update');
-			Route::get('/destroy/{id}', 'ProdukController@destroy')->name('.destroy');
-		});
-		Route::group(['prefix' => 'order', 'as' => '.order'], function () {
-			Route::get('/', 'OrderController@index')->name('.index');
-			Route::get('/edit/{id}', 'OrderController@edit')->name('.edit');
-			Route::post('/update/{id}', 'OrderController@update')->name('.update');
-			Route::get('/destroy/{id}', 'OrderController@destroy')->name('.destroy');
-		});
-	});
-});
-
 Route::get('/', 'FrontController@index')->name('home');
-Route::get('/order/{code}', 'FrontController@order')->name('order');
-Route::post('/order/done/{code}', 'FrontController@done')->name('done');
+
+Route::get('admin', 'Admin\AdminController@index');
+Route::resource('admin/roles', 'Admin\RolesController');
+Route::resource('admin/permissions', 'Admin\PermissionsController');
+Route::resource('admin/users', 'Admin\UsersController');
+Route::resource('admin/pages', 'Admin\PagesController');
+Route::resource('admin/activitylogs', 'Admin\ActivityLogsController')->only([
+    'index', 'show', 'destroy'
+]);
+Route::resource('admin/settings', 'Admin\SettingsController');
+Route::get('admin/generator', 'Admin\ProcessController@getGenerator');
+Route::post('admin/generator', 'Admin\ProcessController@postGenerator');
+Route::get('admin/frontgenerator', 'Admin\ProcessController@FrontGenerator');
+Route::post('admin/frontgenerator', 'Admin\ProcessController@postFrontGenerator');
+
+Route::resource('admin/menu', 'Admin\MenuController');
+Route::resource('admin/front/menu', 'Admin\FrontMenuController');
+
+Route::get('front/visi-dan-misi', function(){return view('front/pages/visi-dan-misi/index');});
+Route::get('front/uncategorized', function(){return view('front/pages/uncategorized/index');});
+Route::get('front/alumni', function(){return view('front/pages/alumni/index');});
+Route::get('front/guru-dan-tenaga-kependidikan', function(){return view('front/pages/guru-dan-tenaga-kependidikan/index');});
+Route::get('front/peserta-didik', function(){return view('front/pages/peserta-didik/index');});
+Route::get('front/pendaftaran-alumni', function(){return view('front/pages/pendaftaran-alumni/index');});
+Route::get('front/formulir-p-p-d-b', function(){return view('front/pages/formulir-p-p-d-b/index');});
+Route::get('front/hasil-seleksi', function(){return view('front/pages/hasil-seleksi/index');});
+Route::get('front/cetak-formulir', function(){return view('front/pages/cetak-formulir/index');});
+Route::get('front/download-formulir', function(){return view('front/pages/download-formulir/index');});
+Route::get('front/hubungi-kami', function(){return view('front/pages/hubungi-kami/index');});
+Route::get('front/foto', function(){return view('front/pages/foto/index');});
+Route::get('front/video', function(){return view('front/pages/video/index');});

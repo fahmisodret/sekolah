@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call('UsersTableSeeder');
-        $this->call('ConfigsTableSeeder');
     }
 }
 
@@ -54,19 +53,5 @@ class UsersTableSeeder extends Seeder
         //     $user->password = Hash::make('secret');
         //     $user->save();
         // }
-    }
-}
-
-class ConfigsTableSeeder extends Seeder
-{
-    public function run()
-    {
-        DB::table('configs')->delete();
-
-        $faker = Faker\Factory::create('en_NZ');
-        $config = new Config();
-        $config->name = 'info_name';
-        $config->keterangan = 'Ellen May Institute';
-        $config->save();
     }
 }
