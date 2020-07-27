@@ -1,8 +1,8 @@
-# Ellen May
-Ellen May Institute
+# Sekolah
+Website Sekolah
 =======
 
-## Tentang Ellen May
+## Tentang Sekolah
 
 Aplikasi sederhana untuk upload produk dan jual produk.
 
@@ -19,7 +19,6 @@ Aplikasi sederhana untuk upload produk dan jual produk.
 - Service Pattern
 
 ## Note
-- sesuai dengan permintaan
 - Gunakan Migration untuk membuat struktur database
 - Gunakan Eloquent untuk mengakses database
 - Gunakan Soft Delete
