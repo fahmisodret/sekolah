@@ -9,6 +9,14 @@
                 <div class="card">
                     <div class="card-header">Generator</div>
                     <div class="card-body">
+                            
+                        <span>
+                            Crud Name = url = (group prefix) / crud name(plural)<br/>
+                            View Path = lokasi view<br/>
+                            Form Helper = Themplate yang digunakan<br/>
+                            Table Field(optional) = diisi jika tampilan  dengan memiliki form<br/>
+                        </span>
+                        <hr/>
 
                         <form class="form-horizontal" method="post" action="{{ url('/admin/frontgenerator') }}">
                             {{ csrf_field() }}

@@ -19,6 +19,7 @@ class ProcessController extends Controller
         $val[] = 'vImage0={{asset("image/produk.jpg")}}';
         $val[] = 'vImage1={{asset("image/user.jpg")}}';
         $this->custom = implode(';', $val);
+        $this->request_name = ['CreateRequest', 'UpdateRequest'];
     }
 
     public function frontGenerator()
@@ -179,6 +180,11 @@ class ProcessController extends Controller
             $commandArg['--soft-deletes'] = $request->soft_deletes;
         }
 
+        $request_command = 'make:request ';
+        if ($request->has('request_namespace')) {
+            $request_command = $request_command.$request->request_namespace;
+        }
+
         try {
             Artisan::call('crud:generate', $commandArg);
 
@@ -201,6 +207,9 @@ class ProcessController extends Controller
             File::put(base_path('resources/laravel-admin/menus.json'), json_encode($menus));
 
             Artisan::call('migrate');
+            foreach ($this->request_name as $req) {
+                Artisan::call($request_command.'/'.$name.'/'.$name.$req);
+            }
         } catch (\Exception $e) {
             return Response::make($e->getMessage(), 500);
         }

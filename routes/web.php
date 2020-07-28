@@ -56,3 +56,12 @@ Route::get('front/download-formulir', function(){return view('front/pages/downlo
 Route::get('front/hubungi-kami', function(){return view('front/pages/hubungi-kami/index');});
 Route::get('front/foto', function(){return view('front/pages/foto/index');});
 Route::get('front/video', function(){return view('front/pages/video/index');});
+
+Route::resource('admin/coba', 'Admin\\CobaController');
+Route::resource('admin/coba', 'Admin\\CobaController');
+Route::resource('admin/coba', 'Admin\\CobaController');
+Route::resource('admin/coba', 'Admin\\CobaController');
+Route::resource('admin/coba2', 'Admin\\Coba2Controller');
+Route::resource('admin/category', 'Admin\\CategoryController');
+Route::resource('admin/alumni', 'Admin\\AlumniController');
+Route::resource('admin/karyawan', 'Admin\\KaryawanController');

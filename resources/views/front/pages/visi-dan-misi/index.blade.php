@@ -34,10 +34,7 @@
                         <div class="card borderless bg-transparent">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <img class="w-100" src="{{asset("image/produk.jpg")}}">
-                                    </div>
-                                    <div class="col-md-10">
+                                    <div class="col-md-12">
                                         <div class="rounded bg-white">
                                             <h6 class="font-weight-bold">HALAL BI HALAL</h6>
                                             <p class="font-italic text-muted mb-2">Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc bairuka. Vulputate enim nulla aliquet porttitor. Eget duis at tellus at urna condimentum mattis. Ut tellus elementum sagittis vitae nam aliquam.</p>
@@ -55,10 +52,7 @@
                         <div class="card borderless bg-transparent">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <img class="w-100" src="{{asset("image/produk.jpg")}}">
-                                    </div>
-                                    <div class="col-md-10">
+                                    <div class="col-md-12">
                                         <div class="rounded bg-white">
                                             <h6 class="font-weight-bold">PRAMUKA</h6>
                                             <p class="font-italic text-muted mb-2">Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc bairuka. Vulputate enim nulla aliquet porttitor. Eget duis at tellus at urna condimentum mattis. Ut tellus elementum sagittis vitae nam aliquam.</p>
@@ -76,10 +70,7 @@
                         <div class="card borderless bg-transparent">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <img class="w-100" src="{{asset("image/produk.jpg")}}">
-                                    </div>
-                                    <div class="col-md-10">
+                                    <div class="col-md-12">
                                         <div class="rounded bg-white">
                                             <h6 class="font-weight-bold">UPACARA</h6>
                                             <p class="font-italic text-muted mb-2">Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc bairuka. Vulputate enim nulla aliquet porttitor. Eget duis at tellus at urna condimentum mattis. Ut tellus elementum sagittis vitae nam aliquam.</p>

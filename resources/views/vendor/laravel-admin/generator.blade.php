@@ -22,19 +22,25 @@
                             <div class="form-group row">
                                 <label for="controller_namespace" class="col-md-4 col-form-label text-right">Controller Namespace:</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="controller_namespace" class="form-control" id="controller_namespace" placeholder="Admin">
+                                    <input type="text" name="controller_namespace" class="form-control" id="controller_namespace" placeholder="Admin" value="Admin">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="controller_namespace" class="col-md-4 col-form-label text-right">Request Namespace:</label>
+                                <div class="col-md-6">
+                                    <input type="text" name="request_namespace" class="form-control" id="request_namespace" placeholder="Admin" value="Admin">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="route_group" class="col-md-4 col-form-label text-right">Route Group Prefix:</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="route_group" class="form-control" id="route_group" placeholder="admin">
+                                    <input type="text" name="route_group" class="form-control" id="route_group" placeholder="admin" value="admin">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="view_path" class="col-md-4 col-form-label text-right">View Path:</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="view_path" class="form-control" id="view_path" placeholder="admin">
+                                    <input type="text" name="view_path" class="form-control" id="view_path" placeholder="admin" value="admin">
                                 </div>
                             </div>
                             <div class="form-group row">

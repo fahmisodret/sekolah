@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/plugin/bootstrap-datatables/css/dataTables.bootstrap4.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/plugin/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugin/summernote/summernote-bs4.css') }}">
 </head>
 <body>
     <div id="app">
@@ -78,27 +79,27 @@
         <hr/>
 
         <div class="container">
-            &copy; {{ date('Y') }}. Created by <a href="http://www.appzcoder.com">AppzCoder</a>
+            &copy; {{ date('Y') }}. Created by <a href="#">Gandors</a>
             <br/>
         </div>
 
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.8.1/tinymce.min.js"></script>
-    <script type="text/javascript">
-        tinymce.init({
-            selector: '.crud-richtext'
-        });
-    </script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('assets/plugin/jquery-3.4.1/jquery.js') }}"></script>
+    <script src="{{ asset('assets/plugin/popper-1.16.1/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/plugin/bootstrap-4.4.1/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/plugin/jquery-datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugin/bootstrap-datatables/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugin/summernote/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('js/js.js') }}"></script>
     <script type="text/javascript">
         $(function () {
             // Navigation active
             $('ul.navbar-nav a[href="{{ "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" }}"]').closest('li').addClass('active');
         });
     </script>
-
-    @yield('scripts')
+    @yield('js')
 </body>
 </html>

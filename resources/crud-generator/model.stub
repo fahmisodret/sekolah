@@ -4,9 +4,13 @@ namespace DummyNamespace;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
+// use App\Traits\UploadTrait;
+// use Storage;
 {{useSoftDeletes}}
+
 class DummyClass extends Model
 {
+    // use UploadTrait;
     use LogsActivity;
     {{softDeletes}}
 
@@ -39,4 +43,15 @@ class DummyClass extends Model
     {
         return __CLASS__ . " model has been {$eventName}";
     }
+
+    // upload image trait
+    // protected $imagePath = 'storage/upload/path to folder';
+    // protected $resize = true;
+    // public $w = 350;
+    // public $h = 200;
+
+    // public function getImageUrlAttribute()
+    // {
+    //     return Storage::url('upload/path to folder/'.$this->image);
+    // }
 }
