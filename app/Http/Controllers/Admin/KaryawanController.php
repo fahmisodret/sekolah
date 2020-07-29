@@ -9,6 +9,7 @@ use App\Karyawan;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Karyawan\KaryawanCreateRequest;
 use App\Http\Requests\Admin\Karyawan\KaryawanUpdateRequest;
+use Storage;
 
 class KaryawanController extends Controller
 {
@@ -63,7 +64,7 @@ class KaryawanController extends Controller
     {
         $karyawan = Karyawan::findOrFail($id);
         if($request->hasFile('image')){
-            Storage::delete('path to folder'.$karyawan->image);
+            Storage::delete('/public/upload/karyawan/'.$karyawan->image);
         }
         $karyawan->update($request->getValidRequest());
 
@@ -72,8 +73,8 @@ class KaryawanController extends Controller
 
     public function destroy($id)
     {
-        // $data = Karyawan::find($id);
-        // Storage::delete('path to folder'.$data->image);
+        $data = Karyawan::find($id);
+        Storage::delete('/public/upload/karyawan/'.$data->image);
         Karyawan::destroy($id);
 
         return redirect('admin/karyawan')->with('flash_message', 'Karyawan deleted!');

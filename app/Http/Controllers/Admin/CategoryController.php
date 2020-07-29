@@ -9,6 +9,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\Category\CategoryCreateRequest;
 use App\Http\Requests\Admin\Category\CategoryUpdateRequest;
+use Storage;
 
 class CategoryController extends Controller
 {
@@ -20,7 +21,6 @@ class CategoryController extends Controller
         if (!empty($keyword)) {
             $category = Category::where('title', 'LIKE', "%$keyword%")
                 ->orWhere('slug', 'LIKE', "%$keyword%")
-                ->orWhere('image', 'LIKE', "%$keyword%")
                 ->orWhere('content', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
@@ -60,7 +60,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         if($request->hasFile('image')){
-            Storage::delete('path to folder'.$category->image);
+            Storage::delete('/public/upload/category/'.$category->image);
         }
         $category->update($request->getValidRequest());
 
@@ -69,8 +69,8 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        // $data = Category::find($id);
-        // Storage::delete('path to folder'.$data->image);
+        $data = Category::find($id);
+        Storage::delete('/public/upload/category/'.$data->image);
         Category::destroy($id);
 
         return redirect('admin/category')->with('flash_message', 'Category deleted!');

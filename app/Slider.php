@@ -4,16 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
-use App\Traits\UploadTrait;
-use Storage;
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use App\Traits\UploadTrait;
+// use Storage;
 
 
-class Karyawan extends Model
+class Slider extends Model
 {
-    use UploadTrait;
+    // use UploadTrait;
     use LogsActivity;
-    use SoftDeletes;
     
 
     /**
@@ -21,7 +19,7 @@ class Karyawan extends Model
      *
      * @var string
      */
-    protected $table = 'karyawans';
+    protected $table = 'sliders';
 
     /**
     * The database primary key value.
@@ -35,7 +33,7 @@ class Karyawan extends Model
      *
      * @var array
      */
-    protected $fillable = ['nama', 'nik', 'jk', 'tempat_lahir', 'tgl_lahir', 'grade', 'image', 'is_show', 'message'];
+    protected $fillable = ['title', 'image', 'message', 'content'];
 
     
 
@@ -51,14 +49,14 @@ class Karyawan extends Model
         return __CLASS__ . " model has been {$eventName}";
     }
 
-    upload image trait
-    protected $imagePath = 'storage/upload/karyawan';
-    protected $resize = true;
-    public $w = 350;
-    public $h = 200;
+    // upload image trait
+    // protected $imagePath = 'storage/upload/path to folder';
+    // protected $resize = true;
+    // public $w = 350;
+    // public $h = 200;
 
-    public function getImageUrlAttribute()
-    {
-        return Storage::url('upload/karyawan/'.$this->image);
-    }
+    // public function getImageUrlAttribute()
+    // {
+    //     return Storage::url('upload/path to folder/'.$this->image);
+    // }
 }

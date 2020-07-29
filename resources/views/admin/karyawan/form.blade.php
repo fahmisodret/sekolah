@@ -28,10 +28,21 @@
     {!! Form::text('grade', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
     {!! $errors->first('grade', '<p class="help-block">:message</p>') !!}
 </div>
+@if(isset($data))
+    <div class="form-group">
+        <img class="col-sm-3" src="{{Storage::url('upload/karyawan/'.$data->image)}}">
+    </div>
+@endif
 <div class="form-group{{ $errors->has('image') ? 'has-error' : ''}}">
-    {!! Form::label('image', 'Image', ['class' => 'control-label']) !!}
-    {!! Form::text('image', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+    <label for="image" class="control-label">Image</label>
+    <input type="file" class="form-control" name="image" placeholder="image" required>
+    <span class="text-danger"><strong>max: 2mb<strong></span>
     {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group{{ $errors->has('message') ? 'has-error' : ''}}">
+    {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
+    {!! Form::textarea('message', null, ('' == 'required') ? ['class' => 'form-control editors', 'required' => 'required'] : ['class' => 'form-control editors']) !!}
+    {!! $errors->first('message', '<p class="help-block">:message</p>') !!}
 </div>
 
 

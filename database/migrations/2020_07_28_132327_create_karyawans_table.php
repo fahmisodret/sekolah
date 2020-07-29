@@ -23,7 +23,9 @@ class CreateKaryawansTable extends Migration
             $table->date('tgl_lahir')->nullable();
             $table->string('grade')->nullable();
             $table->string('image')->nullable();
-            });
+            $table->tinyInteger('is_show')->default(0);
+            $table->text('message')->nullable();
+        });
     }
 
     /**

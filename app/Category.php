@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
-// use App\Traits\UploadTrait;
-// use Storage;
+use App\Traits\UploadTrait;
+use Storage;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Category extends Model
 {
-    // use UploadTrait;
+    use UploadTrait;
     use LogsActivity;
     use SoftDeletes;
     
@@ -51,14 +51,14 @@ class Category extends Model
         return __CLASS__ . " model has been {$eventName}";
     }
 
-    // upload image trait
-    // protected $imagePath = 'storage/upload/path to folder';
-    // protected $resize = true;
-    // public $w = 350;
-    // public $h = 200;
+    upload image trait
+    protected $imagePath = 'storage/upload/category';
+    protected $resize = true;
+    public $w = 350;
+    public $h = 200;
 
-    // public function getImageUrlAttribute()
-    // {
-    //     return Storage::url('upload/path to folder/'.$this->image);
-    // }
+    public function getImageUrlAttribute()
+    {
+        return Storage::url('upload/category/'.$this->image);
+    }
 }

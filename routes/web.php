@@ -65,3 +65,7 @@ Route::resource('admin/coba2', 'Admin\\Coba2Controller');
 Route::resource('admin/category', 'Admin\\CategoryController');
 Route::resource('admin/alumni', 'Admin\\AlumniController');
 Route::resource('admin/karyawan', 'Admin\\KaryawanController');
+Route::resource('admin/slider', 'Admin\\SliderController');
+Route::resource('admin/tautan', 'Admin\\TautanController');
+Route::resource('admin/iklan', 'Admin\\IklanController');
+Route::resource('admin/instansi', 'Admin\\InstansiController');

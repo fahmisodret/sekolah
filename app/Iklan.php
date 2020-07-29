@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use App\Traits\UploadTrait;
 use Storage;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Karyawan extends Model
+class Iklan extends Model
 {
     use UploadTrait;
     use LogsActivity;
-    use SoftDeletes;
     
 
     /**
@@ -21,7 +19,7 @@ class Karyawan extends Model
      *
      * @var string
      */
-    protected $table = 'karyawans';
+    protected $table = 'iklans';
 
     /**
     * The database primary key value.
@@ -35,7 +33,7 @@ class Karyawan extends Model
      *
      * @var array
      */
-    protected $fillable = ['nama', 'nik', 'jk', 'tempat_lahir', 'tgl_lahir', 'grade', 'image', 'is_show', 'message'];
+    protected $fillable = ['title', 'image', 'url'];
 
     
 
@@ -52,13 +50,13 @@ class Karyawan extends Model
     }
 
     upload image trait
-    protected $imagePath = 'storage/upload/karyawan';
+    protected $imagePath = 'storage/upload/iklan';
     protected $resize = true;
     public $w = 350;
     public $h = 200;
 
     public function getImageUrlAttribute()
     {
-        return Storage::url('upload/karyawan/'.$this->image);
+        return Storage::url('upload/iklan/'.$this->image);
     }
 }

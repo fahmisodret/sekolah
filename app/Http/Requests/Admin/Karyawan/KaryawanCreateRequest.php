@@ -16,7 +16,7 @@ class KaryawanCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,6 +28,25 @@ class KaryawanCreateRequest extends FormRequest
     {
         return [
             //
+        ];
+    }
+
+    /**
+     * Valid request
+     * @return array
+     */
+    public function getValidRequest()
+    {
+        return [
+            'nama' => $this->input('nama'),
+            'nik' => $this->input('nik'),
+            'jk' => $this->input('jk'),
+            'tempat_lahir' => $this->input('tempat_lahir'),
+            'tgl_lahir' => $this->input('tgl_lahir'),
+            'grade' => $this->input('grade'),
+            'image' => $this->file('image'),
+            'is_show' => $this->input('is_show'),
+            'message' => $this->input('message'),
         ];
     }
 }

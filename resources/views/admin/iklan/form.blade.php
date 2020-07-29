@@ -1,11 +1,11 @@
 <div class="form-group{{ $errors->has('title') ? 'has-error' : ''}}">
     {!! Form::label('title', 'Title', ['class' => 'control-label']) !!}
-    {!! Form::text('title', null, ('required' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+    {!! Form::text('title', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
 @if(isset($data))
     <div class="form-group">
-        <img class="col-sm-3" src="{{Storage::url('upload/category/'.$data->image)}}">
+        <img class="col-sm-3" src="{{Storage::url('upload/iklan/'.$data->image)}}">
     </div>
 @endif
 <div class="form-group{{ $errors->has('image') ? 'has-error' : ''}}">
@@ -14,10 +14,10 @@
     <span class="text-danger"><strong>max: 2mb<strong></span>
     {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group{{ $errors->has('content') ? 'has-error' : ''}}">
-    {!! Form::label('content', 'Content', ['class' => 'control-label']) !!}
-    {!! Form::textarea('content', null, ('' == 'required') ? ['class' => 'form-control editors', 'required' => 'required'] : ['class' => 'form-control editors']) !!}
-    {!! $errors->first('content', '<p class="help-block">:message</p>') !!}
+<div class="form-group{{ $errors->has('url') ? 'has-error' : ''}}">
+    {!! Form::label('url', 'Url', ['class' => 'control-label']) !!}
+    {!! Form::text('url', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+    {!! $errors->first('url', '<p class="help-block">:message</p>') !!}
 </div>
 
 

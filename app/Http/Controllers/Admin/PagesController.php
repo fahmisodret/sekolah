@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Page;
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\Page\PageCreateRequest;
+use App\Http\Requests\Admin\Page\PageUpdateRequest;
 
 class PagesController extends Controller
 {
@@ -31,15 +33,9 @@ class PagesController extends Controller
         return view('admin.pages.create');
     }
 
-    public function store(Request $request)
+    public function store(PageCreateRequest $request)
     {
-        $this->validate($request, [
-			'title' => 'required',
-			'content' => 'required'
-		]);
-        $requestData = $request->all();
-        
-        Page::create($requestData);
+        Page::create($request->getValidRequest());
 
         return redirect('admin/pages')->with('flash_message', 'Page added!');
     }
@@ -58,16 +54,10 @@ class PagesController extends Controller
         return view('admin.pages.edit', compact('page'));
     }
 
-    public function update(Request $request, $id)
+    public function update(PageUpdateRequest $request, $id)
     {
-        $this->validate($request, [
-			'title' => 'required',
-			'content' => 'required'
-		]);
-        $requestData = $request->all();
-        
         $page = Page::findOrFail($id);
-        $page->update($requestData);
+        $page->update($request->getValidRequest());
 
         return redirect('admin/pages')->with('flash_message', 'Page updated!');
     }
