@@ -16,7 +16,7 @@ class KaryawanCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -27,7 +27,15 @@ class KaryawanCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama' => 'required',
+            'nik' => 'required',
+            'jk' => 'required',
+            'tempat_lahir' => 'required',
+            'tgl_lahir' => 'required',
+            'grade' => 'required',
+            'image' => 'required',
+            'is_show' => 'required',
+            'message' => 'required',
         ];
     }
 

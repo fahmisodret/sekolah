@@ -4,9 +4,16 @@
     {!! $errors->first('nama', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group{{ $errors->has('jk') ? 'has-error' : ''}}">
-    {!! Form::label('jk', 'Jk', ['class' => 'control-label']) !!}
-    {!! Form::number('jk', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
-    {!! $errors->first('jk', '<p class="help-block">:message</p>') !!}
+    <label for="jk" class="control-label">Jenis Kelamin</label>
+    <div class="col-md-12">
+        <input type="radio" name="jk" value="L" {{(isset($karyawan) && $karyawan->jk == 'L')?'checked':''}}>Laki-Laki
+        <input type="radio" name="jk" value="P" {{(isset($karyawan) && $karyawan->jk == 'P')?'checked':''}}>Perempuan
+        @error('role')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
 </div>
 <div class="form-group{{ $errors->has('tgl_lahir') ? 'has-error' : ''}}">
     {!! Form::label('tgl_lahir', 'Tgl Lahir', ['class' => 'control-label']) !!}
@@ -43,9 +50,15 @@
     {!! Form::text('phone', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
     {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
 </div>
+@if(isset($karyawan))
+    <div class="form-group">
+        <img class="col-sm-3" src="{{Storage::url('upload/karyawan/'.$karyawan->image)}}">
+    </div>
+@endif
 <div class="form-group{{ $errors->has('image') ? 'has-error' : ''}}">
-    {!! Form::label('image', 'Image', ['class' => 'control-label']) !!}
-    {!! Form::text('image', null, ('' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
+    <label for="image" class="control-label">Image</label>
+    <input type="file" class="form-control" name="image" placeholder="image">
+    <span class="text-danger"><strong>max: 2mb</strong></span>
     {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
 </div>
 

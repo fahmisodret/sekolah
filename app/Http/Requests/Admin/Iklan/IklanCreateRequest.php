@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Admin\Iklan;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Auth;
+use Input;
 
 class IklanCreateRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class IklanCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +26,22 @@ class IklanCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'image' => 'required',
+            'url' => 'required',
+        ];
+    }
+
+    /**
+     * Valid request
+     * @return array
+     */
+    public function getValidRequest()
+    {
+        return [
+            'title' => $this->input('title'),
+            'image' => $this->file('image'),
+            'url' => $this->input('url'),
         ];
     }
 }

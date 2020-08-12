@@ -49,7 +49,7 @@ class Iklan extends Model
         return __CLASS__ . " model has been {$eventName}";
     }
 
-    upload image trait
+    // upload image trait
     protected $imagePath = 'storage/upload/iklan';
     protected $resize = true;
     public $w = 350;

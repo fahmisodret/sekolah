@@ -49,7 +49,7 @@ class Instansi extends Model
         return __CLASS__ . " model has been {$eventName}";
     }
 
-    upload image trait
+    // upload image trait
     protected $imagePath = 'storage/upload/instansi';
     protected $resize = true;
     public $w = 350;

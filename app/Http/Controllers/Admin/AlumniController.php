@@ -41,7 +41,7 @@ class AlumniController extends Controller
         return view('admin.alumni.create');
     }
 
-    public function store(AlumnusCreateRequest $request)
+    public function store(AlumniCreateRequest $request)
     {
         Alumnus::create($request->getValidRequest());
 
@@ -62,11 +62,11 @@ class AlumniController extends Controller
         return view('admin.alumni.edit', $data);
     }
 
-    public function update(AlumnusUpdateRequest $request, $id)
+    public function update(AlumniUpdateRequest $request, $id)
     {
         $alumnus = Alumnus::findOrFail($id);
         if($request->hasFile('image')){
-            Storage::delete('path to folder'.$alumnus->image);
+            Storage::delete('/public/upload/alumni/'.$alumnus->image);
         }
         $alumnus->update($request->getValidRequest());
 

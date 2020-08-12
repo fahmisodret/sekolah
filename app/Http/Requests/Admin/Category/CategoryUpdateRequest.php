@@ -26,7 +26,6 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:3000', // max 3MB,
             'content' => 'required',
         ];
     }

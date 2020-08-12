@@ -30,7 +30,8 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Title</th><th>Slug</th><th>Image</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Title</th><th>Slug</th><th>Image</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Admin\Tautan;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Auth;
+use Input;
 
 class TautanCreateRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class TautanCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +26,20 @@ class TautanCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'url' => 'required',
+        ];
+    }
+
+    /**
+     * Valid request
+     * @return array
+     */
+    public function getValidRequest()
+    {
+        return [
+            'title' => $this->input('title'),
+            'url' => $this->input('url'),
         ];
     }
 }

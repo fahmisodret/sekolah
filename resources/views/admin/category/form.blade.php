@@ -3,9 +3,9 @@
     {!! Form::text('title', null, ('required' == 'required') ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control']) !!}
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
-@if(isset($data))
+@if(isset($category))
     <div class="form-group">
-        <img class="col-sm-3" src="{{Storage::url('upload/category/'.$data->image)}}">
+        <img class="col-sm-3" src="{{Storage::url('upload/category/'.$category->image)}}">
     </div>
 @endif
 <div class="form-group{{ $errors->has('image') ? 'has-error' : ''}}">

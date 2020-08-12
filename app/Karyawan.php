@@ -51,9 +51,9 @@ class Karyawan extends Model
         return __CLASS__ . " model has been {$eventName}";
     }
 
-    upload image trait
+    // upload image trait
     protected $imagePath = 'storage/upload/karyawan';
-    protected $resize = true;
+    protected $resize = false;
     public $w = 350;
     public $h = 200;
 

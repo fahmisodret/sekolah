@@ -3,18 +3,36 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use App\Config;
+use App\Settings;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run()
     {
         Model::unguard();
-
         $this->call('UsersTableSeeder');
+
+        $this->setFKCheckOff();
+        $this->call(SettingTableSeeder::class);
+        $this->setFKCheckOn();
+    }
+
+    private function setFKCheckOff()
+    {
+        switch (DB::getDriverName()) {
+            case 'mysql':
+                DB::statement('SET FOREIGN_KEY_CHECKS=0');
+                break;
+        }
+    }
+
+    private function setFKCheckOn()
+    {
+        switch (DB::getDriverName()) {
+            case 'mysql':
+                DB::statement('SET FOREIGN_KEY_CHECKS=1');
+                break;
+        }
     }
 }
 

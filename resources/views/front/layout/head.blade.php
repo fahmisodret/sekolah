@@ -6,10 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Title</title>
+
+    <meta name="keywords" content="{{setting('blog_meta_keywords')}}">
+    <meta Content="{{setting('blog_meta_description')}}" Name="Description"/>
+    <title>@yield('title', setting('blog_meta_title'))</title>
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />

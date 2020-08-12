@@ -16,7 +16,7 @@ class AlumniCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -27,7 +27,36 @@ class AlumniCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama' => 'required',
+            'jk' => 'required',
+            'tgl_lahir' => 'required',
+            'thn_lulus' => 'required',
+            'nis' => 'required',
+            'alamat' => 'required',
+            // 'email' => 'required',
+            'telepon' => 'required',
+            'phone' => 'required',
+            'image' => 'required',
+        ];
+    }
+
+    /**
+     * Valid request
+     * @return array
+     */
+    public function getValidRequest()
+    {
+        return [
+            'nama' => $this->input('nama'),
+            'jk' => $this->input('jk'),
+            'tgl_lahir' => $this->input('tgl_lahir'),
+            'thn_lulus' => $this->input('thn_lulus'),
+            'nis' => $this->input('nis'),
+            'alamat' => $this->input('alamat'),
+            'email' => $this->input('email'),
+            'telepon' => $this->input('telepon'),
+            'phone' => $this->input('phone'),
+            'image' => $this->file('image'),
         ];
     }
 }

@@ -31,6 +31,7 @@ class LoginController extends Controller
     // protected $redirectTo;
     public function redirectTo()
     {
+        // dd(Auth::user()->role);
         if(Auth::user()->status == 1){
             switch(Auth::user()->role){
                 case 1:

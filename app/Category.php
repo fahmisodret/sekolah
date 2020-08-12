@@ -51,11 +51,11 @@ class Category extends Model
         return __CLASS__ . " model has been {$eventName}";
     }
 
-    upload image trait
+    // upload image trait
     protected $imagePath = 'storage/upload/category';
     protected $resize = true;
     public $w = 350;
-    public $h = 200;
+    public $h = 350;
 
     public function getImageUrlAttribute()
     {

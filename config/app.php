@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Jasamedika'),
+    'name' => env('APP_NAME', 'SDN 1 MAGERSARI'),
 
     /*
     |--------------------------------------------------------------------------

@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Admin\Instansi;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Auth;
+use Input;
 
 class InstansiUpdateRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class InstansiUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +26,19 @@ class InstansiUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+        ];
+    }
+
+    /**
+     * Valid request
+     * @return array
+     */
+    public function getValidRequest()
+    {
+        return [
+            'title' => $this->input('title'),
+            'image' => $this->file('image'),
         ];
     }
 }

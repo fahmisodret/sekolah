@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
-// use App\Traits\UploadTrait;
-// use Storage;
+use App\Traits\UploadTrait;
+use Storage;
 
 
 class Slider extends Model
 {
-    // use UploadTrait;
+    use UploadTrait;
     use LogsActivity;
     
 
@@ -34,6 +34,7 @@ class Slider extends Model
      * @var array
      */
     protected $fillable = ['title', 'image', 'message', 'content'];
+    protected $appends = ['image_url'];
 
     
 
@@ -50,13 +51,13 @@ class Slider extends Model
     }
 
     // upload image trait
-    // protected $imagePath = 'storage/upload/path to folder';
-    // protected $resize = true;
-    // public $w = 350;
-    // public $h = 200;
+    protected $imagePath = 'storage/upload/slider';
+    protected $resize = true;
+    public $w = 350;
+    public $h = 200;
 
-    // public function getImageUrlAttribute()
-    // {
-    //     return Storage::url('upload/path to folder/'.$this->image);
-    // }
+    public function getImageUrlAttribute()
+    {
+        return Storage::url('upload/slider/'.$this->image);
+    }
 }

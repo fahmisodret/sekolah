@@ -9,6 +9,7 @@ use App\Slider;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\slider\SliderCreateRequest;
 use App\Http\Requests\Admin\slider\SliderUpdateRequest;
+use Storage;
 
 class SliderController extends Controller
 {
@@ -60,7 +61,7 @@ class SliderController extends Controller
     {
         $slider = Slider::findOrFail($id);
         if($request->hasFile('image')){
-            Storage::delete('path to folder'.$slider->image);
+            Storage::delete('/public/upload/slider/'.$slider->image);
         }
         $slider->update($request->getValidRequest());
 
@@ -69,8 +70,8 @@ class SliderController extends Controller
 
     public function destroy($id)
     {
-        // $data = Slider::find($id);
-        // Storage::delete('path to folder'.$data->image);
+        $data = Slider::find($id);
+        Storage::delete('/public/upload/slider/'.$data->image);
         Slider::destroy($id);
 
         return redirect('admin/slider')->with('flash_message', 'Slider deleted!');

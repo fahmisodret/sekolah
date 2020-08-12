@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Admin\Slider;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Auth;
+use Input;
 
 class SliderUpdateRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class SliderUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +26,22 @@ class SliderUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'message' => 'required',
+        ];
+    }
+
+    /**
+     * Valid request
+     * @return array
+     */
+    public function getValidRequest()
+    {
+        return [
+            'title' => $this->input('title'),
+            'image' => $this->file('image'),
+            'message' => $this->input('message'),
+            'content' => $this->input('content'),
         ];
     }
 }

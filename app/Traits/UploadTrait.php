@@ -15,7 +15,7 @@ trait UploadTrait
             }else{
                 $image = Image::make($file);
             }
-            $image->save($this->imagePath.$name);
+            $image->save($this->imagePath.'/'.$name);
             $this->attributes['image'] = $name;
         }
     }

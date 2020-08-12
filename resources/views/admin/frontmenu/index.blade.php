@@ -23,15 +23,20 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Title</th><th>Url</th><th>HasSub</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Url</th>
+                                        <th>HasSub</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($menu->menus[0]->items as $index => $item)
                                     <tr>
-                                        <td>{{ $loop->iteration or $item->id }}</td>
+                                        <td>{{ $index }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $item->url }}</td>
+                                        <td>{{ (isset($item->hasSub) && $item->hasSub)?'yes':'no' }}</td>
                                         <td>
                                             <a href="{{ url('/admin/front/menu/' . $index . '/edit') }}" title="Edit Menu"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                             {!! Form::open([
@@ -39,12 +44,12 @@
                                                 'url' => ['/admin/front/menu', $index],
                                                 'style' => 'display:inline'
                                             ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
+                                                {{-- {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-danger btn-sm',
                                                         'title' => 'Delete Menu',
                                                         'onclick'=>'return confirm("Confirm delete?")'
-                                                )) !!}
+                                                )) !!} --}}
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>

@@ -86,33 +86,27 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
+                                <video width="100%" height="250" controls>
+                                    <source src="{{setting('video')}}" type="video/mp4">Your browser does not support the video tag.
+                                </video>
+                                {{-- <img class="w-100" height="250" src="{{Storage::url('image/footer.jpg')}}"> --}}
+                            </div>
+                            <div class="col-md-3">
                                 <div class="">
                                     <h3>Tentang Kami</h3>
                                 </div>
-                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris pharetras et ultrices neque ornare aenean euismod elementum nisi...</span>
+                                <span>{{Str::limit(setting('about'), 150)}}</span>
+                            </div>
+                            <div class="col-md-3">
+                                {!!setting('map')!!}
                             </div>
                             <div class="col-md-3">
                                 <div class="">
                                     <h3>Informasi</h3>
                                 </div>
                                 <ul>
-                                    <li><i class="fa fa-phone"></i> Kontak Kami : 021-xxxx-xxxx</li>
-                                    <li><i class="fa fa-envelope"></i> Email : sekolah@sekolah.com</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="">
-                                    <h3>Tentang Kami</h3>
-                                </div>
-                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris pharetras et ultrices neque ornare aenean euismod elementum nisi...</span>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="">
-                                    <h3>Informasi</h3>
-                                </div>
-                                <ul>
-                                    <li><i class="fa fa-phone"></i> Kontak Kami : 021-xxxx-xxxx</li>
-                                    <li><i class="fa fa-envelope"></i> Email : sekolah@sekolah.com</li>
+                                    <li><i class="fa fa-phone"></i> Kontak Kami : {{setting('telp')}}</li>
+                                    <li><i class="fa fa-envelope"></i> Email : {{setting('email')}}</li>
                                 </ul>
                             </div>
                         </div>

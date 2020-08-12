@@ -57,9 +57,6 @@ class TautanController extends Controller
     public function update(TautanUpdateRequest $request, $id)
     {
         $tautan = Tautan::findOrFail($id);
-        if($request->hasFile('image')){
-            Storage::delete('path to folder'.$tautan->image);
-        }
         $tautan->update($request->getValidRequest());
 
         return redirect('admin/tautan')->with('flash_message', 'Tautan updated!');

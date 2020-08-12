@@ -52,13 +52,13 @@ class Alumnus extends Model
     }
 
     // upload image trait
-    // protected $imagePath = 'storage/upload/path to folder';
-    // protected $resize = true;
-    // public $w = 350;
-    // public $h = 200;
+    protected $imagePath = 'storage/upload/alumni';
+    protected $resize = false;
+    public $w = 350;
+    public $h = 200;
 
-    // public function getImageUrlAttribute()
-    // {
-    //     return Storage::url('upload/path to folder/'.$this->image);
-    // }
+    public function getImageUrlAttribute()
+    {
+        return Storage::url('upload/alumni/'.$this->image);
+    }
 }

@@ -30,14 +30,20 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Title</th><th>Image</th><th>Message</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
+                                        <th>Message</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($slider as $item)
                                     <tr>
                                         <td>{{ $loop->iteration or $item->id }}</td>
-                                        <td>{{ $item->title }}</td><td>{{ $item->image }}</td><td>{{ $item->message }}</td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->image }}</td>
+                                        <td>{{ $item->message }}</td>
                                         <td>
                                             <a href="{{ url('/admin/slider/' . $item->id) }}" title="View Slider"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                                             <a href="{{ url('/admin/slider/' . $item->id . '/edit') }}" title="Edit Slider"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
